@@ -451,7 +451,7 @@ if __name__ == '__main__':
     coins_bought = {}
 
     # path to the saved coins_bought file
-    coins_bought_file_path = 'coins_bought.json'
+    coins_bought_file_path = '/storage/coins_bought.json'
 
     # rolling window of prices; cyclical queue
     historical_prices = [None] * (TIME_DIFFERENCE * RECHECK_INTERVAL)
