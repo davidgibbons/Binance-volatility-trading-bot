@@ -457,7 +457,7 @@ if __name__ == '__main__':
      
 
     # Authenticate with the client
-    client = Client(access_key, secret_key)
+    client = Client(access_key, secret_key, tld='us')
 
     # Use CUSTOM_LIST symbols if CUSTOM_LIST is set to True
     if CUSTOM_LIST: tickers=[line.strip() for line in open('tickers.txt')]
