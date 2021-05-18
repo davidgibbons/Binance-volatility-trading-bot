@@ -434,7 +434,8 @@ if __name__ == '__main__':
     # Allow ENV override for creds
     access_key = os.getenv('BINANCE_ACCESS_KEY') or access_key
     secret_key = os.getenv('BINANCE_SECRET_KEY') or secret_key
-    DEBUG = os.getenv('BINANCE_DEBUG') or DEBUG
+    if os.getenv('BINANCE_TEST_MODE') == 'False':
+        TEST_MODE = False
 
     if DEBUG:
         print(f'loaded config below\n{json.dumps(parsed_config, indent=4)}')
