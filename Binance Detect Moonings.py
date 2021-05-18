@@ -431,6 +431,11 @@ if __name__ == '__main__':
     # Load creds for correct environment
     access_key, secret_key = load_correct_creds(parsed_creds)
 
+    # Allow ENV override for creds
+    access_key = os.getenv('BINANCE_ACCESS_KEY') or access_key
+    secret_key = os.getenv('BINANCE_SECRET_KEY') or secret_key
+    DEBUG = os.getenv('BINANCE_DEBUG') or DEBUG
+
     if DEBUG:
         print(f'loaded config below\n{json.dumps(parsed_config, indent=4)}')
         print(f'Your credentials have been loaded from {creds_file}')
