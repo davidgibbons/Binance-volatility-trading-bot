@@ -450,9 +450,10 @@ if __name__ == '__main__':
 
     # try to load all the coins bought by the bot if the file exists and is not empty
     coins_bought = {}
-
+    coins_bought_dir_name = '/storage/'
+    
     # path to the saved coins_bought file
-    coins_bought_file_path = '/storage/coins_bought.json'
+    coins_bought_file_path = 'coins_bought.json'
 
     # rolling window of prices; cyclical queue
     historical_prices = [None] * (TIME_DIFFERENCE * RECHECK_INTERVAL)
@@ -464,6 +465,9 @@ if __name__ == '__main__':
     # use separate files for testing and live trading
     if TEST_MODE:
         coins_bought_file_path = 'test_' + coins_bought_file_path
+    
+    # build our full path
+    coins_bought_file_path = coins_bought_dir_name + coins_bought_file_path
 
     # if saved coins_bought json file exists and it's not empty then load it
     if os.path.isfile(coins_bought_file_path) and os.stat(coins_bought_file_path).st_size!= 0:
